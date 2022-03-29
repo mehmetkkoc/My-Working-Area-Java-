@@ -21,32 +21,72 @@ public class FilmTahmin {
 
  */
 
-    public static void main(String[] args) {
+    public static <Char> void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
 
         System.out.println("~~~FILM TAHMIN OYUNUNA HOSGELDINIZ~~~");
 
         System.out.println("1-" + (film.size()) + " arasinda bir sayi giriniz");
-        int sira=scan.nextInt();
-        int hak=film.get(sira-1).length()*2;
-        System.out.println("Tuyo : Film ismi "+(film.get(sira-1).length())+" harfli");
-        System.out.println("Kural: Tahmin Hakki "+hak+" adettir");
-        int sayac=0;
-        String tahmin="";
-        while (sayac<hak){
+        int sira = scan.nextInt();
+        int hak = film.get(sira - 1).length() * 2;
+
+        adamAsmaca(sira,hak);
+
+    }
+
+    private static void adamAsmaca(int sira, int hak) {
+        Scanner scan=new Scanner(System.in);
+        List<Character> aranan = new ArrayList<>();
+        List<Character> acik = new ArrayList<>();
+        for (int i = 0; i < film.get(sira - 1).length(); i++) {
+            acik.add(film.get(sira - 1).charAt(i));
+        }
+        for (int i = 0; i < film.get(sira - 1).length(); i++) {
+            aranan.add('#');
+        }
+        System.out.println(aranan);
+
+
+        System.out.println("Tuyo : Film ismi " + (film.get(sira - 1).length()) + " harfli");
+        System.out.println("Kural: Tahmin Hakki " + hak + " adettir");
+        int dogruSayac = 0;
+        int yanlisSayac = 0;
+        Character tahmin;
+
+
+        while (dogruSayac + yanlisSayac <= hak) {
             System.out.println("Tahmininizi Giriniz");
-            tahmin= scan.next();
-            sayac++;
-            if (tahmin.equalsIgnoreCase(film.get(sira-1))){
-                System.out.println("Tebrikler \n"+film.get(sira-1)+" filmini "+sayac+" denemede bildiniz");
+            tahmin = scan.next().charAt(0);
+            for (int j = 0; j < aranan.size(); j++) {
+
+                if (acik.get(j).equals(tahmin)) {
+                    aranan.set(j, tahmin);
+                }
+            }
+            if (acik.contains(tahmin)) {
+                dogruSayac++;
+
+            } else {
+                yanlisSayac++;
+            }
+            if (aranan.equals(acik)) {
+                System.out.println(aranan);
+                System.out.println("Kazandiniz");
                 break;
-            }else{
-                System.out.println("Bilemediniz \n"+sayac+". yanlis tahmin\nKalan Tahmin Hakkiniz : "+(hak-sayac));
+            } else {
+                System.out.println(aranan);
+                System.out.println("Dogru tahmin : " + dogruSayac + " Yanlis tahmin : " + yanlisSayac);
+                System.out.println("Kalan Tahmin Hakkiniz : " + (hak - dogruSayac - yanlisSayac));
+            }
+            if (dogruSayac + yanlisSayac == hak) {
+                System.out.println("kaybettiniz \nDogru cevap : " + acik + " olacakti");
+                break;
             }
         }
-        if (sayac==hak){
-            System.out.println("kaybettiniz \nDogru cevap : "+film.get(sira-1)+" olacakti");
-        }
+
     }
 }
+
+
+
