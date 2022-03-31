@@ -1,3 +1,5 @@
+package projeler;
+
 import java.util.Locale;
 import java.util.Scanner;
 
