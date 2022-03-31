@@ -43,7 +43,7 @@ public class FilmTahmin {
             acik.add(film.get(sira - 1).charAt(i));
         }
         for (int i = 0; i < film.get(sira - 1).length(); i++) {
-            aranan.add('#');
+            aranan.add('-');
         }
         System.out.println(aranan);
 
@@ -55,7 +55,7 @@ public class FilmTahmin {
         Character tahmin;
 
 
-        while (dogruSayac + yanlisSayac <= hak) {
+        while (yanlisSayac <= hak) {
             System.out.println("Tahmininizi Giriniz");
             tahmin = scan.next().charAt(0);
             for (int j = 0; j < aranan.size(); j++) {
@@ -71,18 +71,19 @@ public class FilmTahmin {
                 yanlisSayac++;
             }
             if (aranan.equals(acik)) {
-                System.out.println(aranan);
-                System.out.println("Kazandiniz");
+                System.out.println("\n\n***** "+film.get(sira - 1)+" *****");
+                System.out.println("\n***//  TEBRIKLER  \\\\***\n\n\n");
                 break;
-            } else {
+            }else if (yanlisSayac == hak) {
+                System.out.println("\n\n--- GAME OVER --- \n\n\nDogru cevap : (((  " + film.get(sira - 1) + "  ))) olacakti");
+                break;
+            }
+            else {
                 System.out.println(aranan);
                 System.out.println("Dogru tahmin : " + dogruSayac + " Yanlis tahmin : " + yanlisSayac);
-                System.out.println("Kalan Tahmin Hakkiniz : " + (hak - dogruSayac - yanlisSayac));
+                System.out.println("Kalan Tahmin Hakkiniz : " + (hak - yanlisSayac));
             }
-            if (dogruSayac + yanlisSayac == hak) {
-                System.out.println("kaybettiniz \nDogru cevap : " + acik + " olacakti");
-                break;
-            }
+
         }
 
     }
