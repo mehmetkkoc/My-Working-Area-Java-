@@ -1,5 +1,6 @@
 package projeler;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TasKagitMakas {
@@ -10,6 +11,7 @@ public class TasKagitMakas {
         int kullaniciPuani = 0;
         int pcPuani = 0;
         int kullanıcıSecim = 0;
+        Random rnd = new Random();
 
 
         String devam = "evet";
@@ -19,7 +21,9 @@ public class TasKagitMakas {
             System.out.println("Seciminizi Yapin");
 
             kullanıcıSecim = scan.nextInt();
-            int pcSecim = (int) (Math.random() * 3);
+
+            int pcSecim = rnd.nextInt(1,4);
+            System.out.println(pcSecim);
 
             if (kullanıcıSecim == 1) {
                 if (pcSecim == 1) {
@@ -29,6 +33,7 @@ public class TasKagitMakas {
                     pcPuani++;
                     System.out.println("Seciminiz: Tas      PC: Kagit ");
                     System.out.println("Skor ==> " + kullaniciPuani + "  -  " + pcPuani);
+
 
                 } else {
                     kullaniciPuani++;
@@ -69,6 +74,8 @@ public class TasKagitMakas {
                 System.out.println("Hatali Giris");
                 continue;
             }
+
+
             if (kullaniciPuani == 3) {
                 System.out.println("siz Kazandiniz");
                 System.out.println("Skor ==> Siz:" + kullaniciPuani + "  -  PC: " + pcPuani);

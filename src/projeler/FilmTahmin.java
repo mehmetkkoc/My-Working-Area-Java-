@@ -1,29 +1,12 @@
 package projeler;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class FilmTahmin {
     static List<String> film = new ArrayList<>(Arrays.asList("JOKER", "INCEPTION", "PIYANIST", "GREENMILE", "LEON", "GODFATHER", "JURASSICPARK", "TITANIC"));
 
-        /*
- TASK :
-  yukarıdaki film listinde bulunan filmlerden herhangi birisini kullanıcının filim ismini  görmeden
-  filmin index nosuna göre sectiriniz
-  seçilen filmin  ismini filmin harf saysının 2 katı kadar hak tanıyarak tahmin etmesini
-  sağlayan method create ediniz...
-  Ahanda TRICK...
-  kullanıcının sectiği filmin harf sayısını  console yazdırınız.
-  kullanıcının sectiği film için tahmin hakkını  console yazdırınız.
-  kullanıcının her tahmininde kalan hak sayısını console yazdırınız.
-  kullanıcının her tahmininde doğru ve yanlış tahmin  sayısını console yazdırınız.
-  kullanıcının kaybedip veya kazandığını ve tahmin etmesi gereken filmin ismini  console yazdırınız.
 
- */
-
-    public static <Char> void main(String[] args) {
+    public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
 
@@ -32,22 +15,69 @@ public class FilmTahmin {
         System.out.println("1-" + (film.size()) + " arasinda bir sayi giriniz");
         int sira = scan.nextInt();
         int hak = film.get(sira - 1).length() * 2;
+        //String kapali=film.get(sira-1).replaceAll("\\w","-");
+        //System.out.println(kapali);
+        List<Character> aranan = new ArrayList<>();
+        for (int i = 0; i < film.get(sira - 1).length(); i++) {           // Gereksiz Dongu
+            aranan.add('-');
+        }
+        System.out.println(aranan);
 
-        adamAsmaca(sira,hak);
+        System.out.println("Tuyo : Film ismi " + (film.get(sira - 1).length()) + " harfli");
+        System.out.println("Kural: Tahmin Hakki " + hak + " adettir");
+        int dogruSayac = 0;
+        int yanlisSayac = 0;
+        char tahmin;
+
+
+        while (yanlisSayac <= hak) {
+            System.out.println("Tahmininizi Giriniz");
+            tahmin = scan.next().toUpperCase().charAt(0);
+
+            for (int i = 0; i < aranan.size(); i++) {
+
+                if (film.get(sira - 1).charAt(i) == tahmin) {
+                    aranan.set(i, tahmin);
+                }
+            }
+            if (aranan.contains(tahmin)) {
+                dogruSayac++;
+
+            } else {
+                yanlisSayac++;
+
+            }
+
+
+            if (aranan.toString().equalsIgnoreCase(film.get(sira - 1))) {
+                System.out.println("\n\n***** " + film.get(sira - 1) + " *****");
+                System.out.println("\n***//*/  TEBRIKLER  \\\\***\n\n\n");
+                break;
+            } else if (yanlisSayac == hak) {
+                System.out.println("\n\n--- GAME OVER --- \n\n\nDogru cevap : (((  " + film.get(sira - 1) + "  ))) olacakti");
+                break;
+            } else {
+                System.out.println(aranan);
+                System.out.println("Dogru tahmin : " + dogruSayac + " Yanlis tahmin : " + yanlisSayac);
+                System.out.println("Kalan Tahmin Hakkiniz : " + (hak - yanlisSayac));
+            }
+
+
+       /* adamAsmaca(sira,hak);
 
     }
 
     private static void adamAsmaca(int sira, int hak) {
         Scanner scan=new Scanner(System.in);
         List<Character> aranan = new ArrayList<>();
-        List<Character> acik = new ArrayList<>();
+        List<Character> acik = new ArrayList<>();                        // Gereksiz satir
         for (int i = 0; i < film.get(sira - 1).length(); i++) {
             acik.add(film.get(sira - 1).charAt(i));
         }
-        for (int i = 0; i < film.get(sira - 1).length(); i++) {
+        for (int i = 0; i < film.get(sira - 1).length(); i++) {           // Gereksiz Dongu
             aranan.add('-');
         }
-        System.out.println(aranan);
+        System.out.println(film.get(sira-1).replaceAll("//w","-"));
 
 
         System.out.println("Tuyo : Film ismi " + (film.get(sira - 1).length()) + " harfli");
@@ -74,7 +104,7 @@ public class FilmTahmin {
             }
             if (aranan.equals(acik)) {
                 System.out.println("\n\n***** "+film.get(sira - 1)+" *****");
-                System.out.println("\n***//  TEBRIKLER  \\\\***\n\n\n");
+                System.out.println("\n***//*/  TEBRIKLER  \\\\***\n\n\n");
                 break;
             }else if (yanlisSayac == hak) {
                 System.out.println("\n\n--- GAME OVER --- \n\n\nDogru cevap : (((  " + film.get(sira - 1) + "  ))) olacakti");
@@ -86,10 +116,12 @@ public class FilmTahmin {
                 System.out.println("Kalan Tahmin Hakkiniz : " + (hak - yanlisSayac));
             }
 
-        }
+        }*/
 
+        }
     }
 }
+
 
 
 
