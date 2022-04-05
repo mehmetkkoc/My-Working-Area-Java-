@@ -23,7 +23,7 @@ public class TasKagitMakas {
             kullanıcıSecim = scan.nextInt();
 
             int pcSecim = rnd.nextInt(1,4);
-            System.out.println(pcSecim);
+
 
             if (kullanıcıSecim == 1) {
                 if (pcSecim == 1) {

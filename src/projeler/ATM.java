@@ -10,21 +10,22 @@ public class ATM {
         int sifre = 1234;
         int islem = 0;
         int count = 0;
-        int bakiye = 1000;
-        int tutar = 0;
-        String iban = "";
         int secim = 0;
         int sayac = 0;
 
 
+
         musteriKarsila(sifre);
 
-        islemleriYap(sifre, islem, count, bakiye, tutar, iban, secim, sayac);
+        islemleriYap(sifre, islem, count, secim, sayac);
 
     }
 
-    private static void islemleriYap(int sifre, int islem, int count, int bakiye, int tutar, String iban, int secim, int sayac) {
-
+    private static void islemleriYap(int sifre, int islem, int count, int secim, int sayac) {
+        int sifreTeyit=0;
+        int tutar = 0;
+        String iban = "";
+        int bakiye = 1000;
         while (count < 1) {                             // Tum Islemleri Basa Dondurur
 
             System.out.println("Lutfen Yapmak Istediginiz Islemi Secin\n1 - Bakiye Sorgula  2 - Para Yatirma  3 - Para Cekme  4 - Para Gonderme  5 - Sifre Degistirme  6 - Cikis");
@@ -95,6 +96,16 @@ public class ATM {
                     break;
                 case 5:
                     while (count < 1) {
+
+                        while (sayac < 1) {
+                            System.out.println("Lutfen Sifrenizi Giriniz");
+                            sifreTeyit = scan.nextInt();
+                            if (sifreTeyit != sifre) {
+                                System.out.println("Hatali Sifre");
+                            }else{
+                                sayac++;
+                            }
+                        }
                         System.out.println("Lutfen Yeni Sifreyi Giriniz");
                         int yeniSifre = scan.nextInt();
                         if (yeniSifre > 999 && yeniSifre < 10000) {
