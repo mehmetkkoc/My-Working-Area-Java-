@@ -126,7 +126,7 @@ public class Islemler {
                                 sayac++;
                             }
 
-                        }
+                        }sayac = 0;
 
                     }
 
@@ -134,7 +134,7 @@ public class Islemler {
                 if (count == 0) {
                     System.out.println("Hatali ID no");
                 }
-            }
+            }count=0;
         }else {
             System.out.println("Sistemde tanimlanmis urun yoktur");
 
