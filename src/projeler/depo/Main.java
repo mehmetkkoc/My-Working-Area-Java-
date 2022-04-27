@@ -13,9 +13,11 @@ public class Main {
         Islemler isl1=new Islemler();
         int islem=0;
 
-        boolean devamke = true;
+        boolean devamMi = true;
+
         System.out.println("\nDepo Uygulamasina Hosgelsiniz");
-        while (devamke){
+
+        while (devamMi){
             System.out.println("\nLutfen Yapmak Istediginiz Islemi Seciniz" +
                     "\n1 - Urun Tanimlama\n2 - Urun Listele\n3 - Urun Girisi" +
                     "\n4 - Urunu Rafa Koy\n5 - Urun Cikisi\n6 - Calismayi Sonlandir");
@@ -39,7 +41,7 @@ public class Main {
                     isl1.urunCikisi(yeni);
                     break;
                 case 6:
-                    devamke=false;
+                    devamMi=false;
                     System.out.println("Calisma sonlandirildi");
                     break;
                 default:

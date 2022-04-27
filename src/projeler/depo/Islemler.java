@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Islemler {
     Scanner scan = new Scanner(System.in);
+
     List<UrunBilgileri> detaylar = new ArrayList<>();
 
     static int idNo=1000;
@@ -31,7 +32,11 @@ public class Islemler {
     public void urunListele(List<UrunBilgileri> detaylar){
 
        if (!detaylar.isEmpty()){
+
+
+
            for (int i = 0; i < detaylar.size(); i++) {
+
                System.out.println(detaylar.get(i));
            }
            }else{
@@ -49,13 +54,17 @@ public class Islemler {
             while (count < 1) {
                 System.out.println("Lutfen giris yapmak istediginiz urunun Id No girin");
                 int arananId = scan.nextInt();
+
                 for (int i = 0; i < detaylar.size(); i++) {
+
                     if (detaylar.get(i).id == arananId) {
 
                         System.out.println("Lutfen giris yapmak istediginiz miktari girin");
 
                         detaylar.get(i).miktar += scan.nextInt();
+
                         System.out.println("Giris islemi tamamlandi\n\n");
+
                         count++;
                     }
 
@@ -141,6 +150,19 @@ public class Islemler {
         }
         return detaylar;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public List<UrunBilgileri> getDetaylar() {
         return detaylar;
