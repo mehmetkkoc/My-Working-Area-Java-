@@ -13,9 +13,13 @@ public class EntrySetUpdate {
 
         Set<Map.Entry<Integer,String>> sinifEntrySet= sinifListMap.entrySet();
 
+        System.out.println(sinifEntrySet);
+       /*
         Scanner scan=new Scanner(System.in);
         System.out.println("Bilgisini degistirmek istediginiz ogrenci no girin");
         int degisecekNo = scan.nextInt();
+        */
+
 
         for (Map.Entry<Integer,String> each: sinifEntrySet
         ) {

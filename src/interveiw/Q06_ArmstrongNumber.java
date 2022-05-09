@@ -10,7 +10,7 @@ public class Q06_ArmstrongNumber {
 
           soru2: Birden baslayarak girilen sayıya kadar her bir tamsayının amstrong sayı olup olmadıgını
           gösteren program yazınız */
-        int sayi = 817;
+        int sayi = 900;
         int birler =0;
         int onlar = 0;
         int yuzler =0;

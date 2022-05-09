@@ -12,25 +12,25 @@ public class AtbashCode {
      */
     public static void main(String[] args) {
 
-        String cumle = "aaabbbccc";
+        String cumle ="ABCDEFG";
 
         atbashCode(cumle);
-
-
     }
 
     private static void atbashCode(String cumle) {
         String arr[]=cumle.split("");
         List<String> liste=Arrays.asList(arr);
-        System.out.println(liste);
+        System.out.println("Girilen metin : "+ cumle);
         String alfabe="abcdefghijklmnopqrstuvwxyz";
         String atbash="zyxwvutsrqponmlkjihgfedcba";
 
+        System.out.print("Atbash code ile yazilisi : ");
         for (int i = 0; i < liste.size() ; i++) {
             for (int j = 0; j <alfabe.length(); j++) {
                 if (liste.get(i).equalsIgnoreCase(alfabe.substring(j,j+1))){
                     liste.set(i,atbash.substring(j,j+1));
                     System.out.print(liste.get(i));
+                    break;
 
                 }
             }

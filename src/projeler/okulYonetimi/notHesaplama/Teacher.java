@@ -1,4 +1,4 @@
-package projeler.okulYonetimi;
+package projeler.okulYonetimi.notHesaplama;
 
 public class Teacher {
     private String nameTch;

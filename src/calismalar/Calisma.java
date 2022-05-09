@@ -1,25 +1,34 @@
 package calismalar;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Calisma {
-    String name;
-    int age;
-    String phone;
-
-    Calisma() {
-
-    }
-
-    Calisma(String name, int age,String phone) {
-        this.name = name;
-        this.phone = phone;
-    }
 
     public static void main(String[] args) {
 
-        Calisma c1=new Calisma();
-        Calisma c2 = new Calisma("john", 25,"0536987843652");
+        List<Integer> list= Arrays.asList(3,5,7,2,4,6,8);
 
-        System.out.println(c2.name +", "+ c2.age+", "+c2.phone);
+        //list.forEach(x-> System.out.println(x));
+       /* list.forEach(x->{
+        x+=2;
+            System.out.print(x+" ");
+
+        });*/
+
+       /* list.forEach(x->{
+            int sayi=5;
+            x*=sayi;
+            System.out.println(x+"ve"+sayi);
+        });*/
+
+        /*
+        int sayi2=2;
+        list.forEach(x->{
+            x+=sayi2;
+            System.out.println("x= "+x);
+        });*/
+        list.forEach(System.out::println);
     }
 
 }

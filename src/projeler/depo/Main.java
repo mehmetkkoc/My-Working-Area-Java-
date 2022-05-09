@@ -15,7 +15,7 @@ public class Main {
 
         boolean devamMi = true;
 
-        System.out.println("\nDepo Uygulamasina Hosgelsiniz");
+        System.out.println("\nDepo Uygulamasina Hosgeldiniz");
 
         while (devamMi){
             System.out.println("\nLutfen Yapmak Istediginiz Islemi Seciniz" +
