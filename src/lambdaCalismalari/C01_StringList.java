@@ -51,6 +51,8 @@ public class C01_StringList {
         list.stream().map(t->t.substring(0,1)+t.substring(0,1)+t).forEach(C01_StringList::yazdir);
         System.out.println("***");
 
+        //S4: tum 'l' leri silelim yazdiralim
+        list.stream().map(t->t.replaceAll("l","")).forEach(C01_StringList::yazdir);
 
         // S7: tum elemanlarin ilk harfini buyuk digerlerini kucuk yaziniz
 
